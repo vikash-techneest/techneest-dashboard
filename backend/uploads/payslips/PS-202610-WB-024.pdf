@@ -1,0 +1,91 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /MediaBox [0 0 595 842] /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Length 2762 >>
+stream
+BT /F2 18 Tf 50 780 Td (TECHNEEST - OFFICIAL SALARY SLIP) Tj ET
+BT /F1 10 Tf 50 760 Td (Payslip No: PS-202610-WB-024   |   Pay Period: October 2026   |   Generated: 2026-10-22) Tj ET
+50 750 m 545 750 l S
+BT /F2 12 Tf 50 730 Td (EMPLOYEE INFORMATION) Tj ET
+BT /F1 10 Tf 50 712 Td (Employee ID: WB-024) Tj ET
+BT /F1 10 Tf 300 712 Td (Name: Rahul Sharma) Tj ET
+BT /F1 10 Tf 50 696 Td (Department: Development) Tj ET
+BT /F1 10 Tf 300 696 Td (Designation: Senior Frontend Developer) Tj ET
+BT /F1 10 Tf 50 680 Td (Email: rahul.sharma@company.com) Tj ET
+BT /F1 10 Tf 300 680 Td (Joining Date: 2023-01-15) Tj ET
+50 668 m 545 668 l S
+BT /F2 12 Tf 50 648 Td (ATTENDANCE & PAYABLE DAYS SUMMARY) Tj ET
+BT /F1 10 Tf 50 630 Td (Total Working Days: 24) Tj ET
+BT /F1 10 Tf 220 630 Td (Approved Present Days: 22) Tj ET
+BT /F1 10 Tf 400 630 Td (Half Days: 0) Tj ET
+BT /F1 10 Tf 50 614 Td (Paid Leave Days: 2) Tj ET
+BT /F1 10 Tf 220 614 Td (Unpaid Leave / Absent: 0) Tj ET
+BT /F2 10 Tf 400 614 Td (Payable Days: 24) Tj ET
+50 600 m 545 600 l S
+BT /F2 12 Tf 50 580 Td (EARNINGS \(INR\)) Tj ET
+BT /F2 12 Tf 310 580 Td (DEDUCTIONS \(INR\)) Tj ET
+50 572 m 545 572 l S
+BT /F1 10 Tf 50 554 Td (Basic Salary \(Earned\)) Tj ET
+BT /F1 10 Tf 220 554 Td (22500.00) Tj ET
+BT /F1 10 Tf 310 554 Td (Provident Fund \(PF\)) Tj ET
+BT /F1 10 Tf 480 554 Td (0.00) Tj ET
+BT /F1 10 Tf 50 536 Td (House Rent Allowance \(HRA\)) Tj ET
+BT /F1 10 Tf 220 536 Td (11250.00) Tj ET
+BT /F1 10 Tf 310 536 Td (Employee State Insurance \(ESI\)) Tj ET
+BT /F1 10 Tf 480 536 Td (0.00) Tj ET
+BT /F1 10 Tf 50 518 Td (Dearness Allowance \(DA\)) Tj ET
+BT /F1 10 Tf 220 518 Td (4500.00) Tj ET
+BT /F1 10 Tf 310 518 Td (Professional Tax \(PT\)) Tj ET
+BT /F1 10 Tf 480 518 Td (0.00) Tj ET
+BT /F1 10 Tf 50 500 Td (Special Allowance) Tj ET
+BT /F1 10 Tf 220 500 Td (6750.00) Tj ET
+BT /F1 10 Tf 310 500 Td (TDS / Income Tax) Tj ET
+BT /F1 10 Tf 480 500 Td (0.00) Tj ET
+BT /F1 10 Tf 50 482 Td (Overtime Pay) Tj ET
+BT /F1 10 Tf 220 482 Td (351.56) Tj ET
+BT /F1 10 Tf 310 482 Td (Unpaid Leave Deduction) Tj ET
+BT /F1 10 Tf 480 482 Td (0.00) Tj ET
+BT /F1 10 Tf 50 464 Td (Bonus & Incentives) Tj ET
+BT /F1 10 Tf 220 464 Td (2000.00) Tj ET
+BT /F1 10 Tf 310 464 Td (Other Deductions / Adjustments) Tj ET
+BT /F1 10 Tf 480 464 Td (0.00) Tj ET
+BT /F1 10 Tf 50 446 Td (Positive Adjustments) Tj ET
+BT /F1 10 Tf 220 446 Td (0.00) Tj ET
+50 428 m 545 428 l S
+BT /F2 11 Tf 50 410 Td (GROSS EARNINGS:) Tj ET
+BT /F2 11 Tf 210 410 Td (INR 47351.56) Tj ET
+BT /F2 11 Tf 310 410 Td (TOTAL DEDUCTIONS:) Tj ET
+BT /F2 11 Tf 470 410 Td (INR 0.00) Tj ET
+50 398 m 545 398 l S
+BT /F2 14 Tf 50 372 Td (NET PAYABLE SALARY: INR 47,352.00) Tj ET
+BT /F1 9 Tf 50 332 Td (Note: This is a computer-generated salary slip and does not require a physical signature.) Tj ET
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000000321 00000 n 
+0000000396 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+3210
+%%EOF
