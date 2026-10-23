@@ -1,64 +1,112 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Search, Bell, HelpCircle, User } from 'lucide-react';
+import { Search, Bell, HelpCircle, User, Sun, Moon } from 'lucide-react';
 
 const UserTopbar = () => {
   const location = useLocation();
+  
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'dark';
+  });
 
-  // Function to get page title based on route
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+
   const getPageTitle = () => {
     const path = location.pathname;
-    
-    if (path.includes('/dashboard')) return 'Dashboard ';
+    if (path.includes('/dashboard')) return 'Dashboard';
     if (path.includes('/tasks')) return 'My Tasks';
     if (path.includes('/create-task')) return 'Create a Personal Task';
     if (path.includes('/attendance')) return 'Attendance & Time Tracking';
-    if (path.includes('/reports')) return 'Work Reports & Profile'; // & My Profile hata diya
-    // /profile route wala logic hata diya
-    
+    if (path.includes('/reports')) return 'Work Reports & Profile';
     return 'Employee Panel';
   };
 
-  const currentPage = getPageTitle();
-
   return (
-    <header className="h-20 w-full bg-[#0a0a0a] border-b border-[#262626] flex items-center justify-between px-8 font-sans shrink-0">
+    <header className="h-20 w-full bg-white dark:bg-[#0a0a0a] border-b border-gray-100 dark:border-[#262626] flex items-center justify-between px-8 font-sans shrink-0 transition-colors duration-300 z-10">
       
       {/* Left side: Dynamic Page Title */}
       <div className="flex items-center">
-        <span className="text-xl font-bold text-white tracking-tight">
-          {currentPage}
+        <span className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight transition-colors duration-300">
+          {getPageTitle()}
         </span>
       </div>
 
       {/* Right side: Actions */}
-      <div className="flex items-center gap-6 ml-auto">
+      <div className="flex items-center gap-5 ml-auto">
         
         {/* Search Bar */}
-        <div className="relative w-72">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
+        <div className="relative w-80 group hidden md:block">
           <input 
             type="text" 
             placeholder="Search my tasks..." 
-            className="w-full bg-[#121212] border border-[#262626] text-sm text-gray-300 rounded-lg pl-10 pr-4 py-2.5 focus:outline-none focus:border-[#444] transition-colors"
+            className="w-full bg-gray-50 dark:bg-[#121212] border border-gray-200 dark:border-[#262626] text-sm text-gray-600 dark:text-gray-300 rounded-full pl-5 pr-12 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all duration-300"
           />
+          <button className="absolute right-1.5 top-1/2 -translate-y-1/2 bg-indigo-600 hover:bg-indigo-700 text-white p-2 rounded-full transition-colors shadow-sm">
+            <Search size={16} />
+          </button>
         </div>
 
-        {/* Icons */}
-        <div className="flex items-center gap-4 border-l border-[#262626] pl-6">
-          <button className="text-gray-400 hover:text-white transition-colors">
-            <HelpCircle size={22} />
+        {/* Icons & Toggle Section */}
+        <div className="flex items-center gap-3">
+          
+          {/* Animated Theme Toggle */}
+          <button 
+            onClick={toggleTheme}
+            className={`relative inline-flex h-10 w-20 items-center rounded-full transition-all duration-500 focus:outline-none shadow-inner border
+              ${theme === 'dark' 
+                ? 'bg-[#1a1a1a] border-[#333]' 
+                : 'bg-gray-100 border-gray-200'
+              }`}
+            aria-label="Toggle Theme"
+          >
+            {/* Background Icons (Faded) */}
+            <div className="absolute inset-0 flex items-center justify-between px-3 pointer-events-none">
+              <Sun size={16} className={`transition-opacity duration-300 ${theme === 'light' ? 'opacity-0' : 'opacity-40 text-gray-400'}`} />
+              <Moon size={16} className={`transition-opacity duration-300 ${theme === 'dark' ? 'opacity-0' : 'opacity-40 text-gray-400'}`} />
+            </div>
+
+            {/* Sliding Circle */}
+            <span
+              className={`relative z-10 inline-flex h-8 w-8 transform items-center justify-center rounded-full shadow-md transition-all duration-500 ease-in-out
+                ${theme === 'dark' 
+                  ? 'translate-x-11 bg-[#0a0a0a] text-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.3)]' 
+                  : 'translate-x-1 bg-white text-yellow-500 shadow-[0_0_15px_rgba(234,179,8,0.3)]'
+                }`}
+            >
+              {theme === 'dark' ? (
+                <Moon size={16} className="animate-in zoom-in spin-in-12 duration-300" />
+              ) : (
+                <Sun size={16} className="animate-in zoom-in spin-in-12 duration-300" />
+              )}
+            </span>
+          </button>
+
+          {/* Help Icon */}
+          <button className="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-[#121212] border border-gray-200 dark:border-[#262626] text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#1a1a1a] transition-all shadow-sm">
+            <HelpCircle size={20} />
           </button>
           
-          <button className="text-gray-400 hover:text-white transition-colors relative">
-            <Bell size={22} />
-            <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-[#0a0a0a]"></span>
+          {/* Notification Icon */}
+          <button className="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-[#121212] border border-gray-200 dark:border-[#262626] text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#1a1a1a] transition-all shadow-sm relative">
+            <Bell size={20} />
+            <span className="absolute top-2 right-2.5 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white dark:border-[#121212]"></span>
           </button>
           
-          {/* User Icon (Jaisa tha waisa hi hai) */}
-          <button className="w-10 h-10 rounded-full bg-[#121212] border border-[#262626] flex items-center justify-center text-gray-400 hover:text-white transition-colors">
+          {/* Profile Icon */}
+          <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800 ml-1 cursor-pointer hover:shadow-md transition-all">
             <User size={20} />
-          </button>
+          </div>
         </div>
 
       </div>

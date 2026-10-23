@@ -20,7 +20,8 @@ const Employee = () => {
   );
 
   return (
-    <div className=" text-white font-sans relative">
+    // Text color theme ke hisaab se change hoga
+    <div className="text-gray-800 dark:text-white font-sans relative transition-colors duration-300">
       
       {/* SCROLLBAR HIDE CSS */}
       <style>{`
@@ -36,27 +37,28 @@ const Employee = () => {
       {/* Page Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-white mb-2">Employees</h1>
-          <p className="text-gray-400 text-sm">Manage employee accounts, departments, roles and daily attendance status.</p>
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-2 transition-colors duration-300">Employees</h1>
+          <p className="text-gray-500 dark:text-gray-400 text-sm">Manage employee accounts, departments, roles and daily attendance status.</p>
         </div>
         
+        {/* Button ko Indigo banaya gaya hai image jaisa */}
         <button 
           onClick={() => navigate('/admin/employee-add')}
-          className="flex items-center gap-2 bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 text-white px-5 py-2.5 rounded-lg border border-gray-600 transition-all font-medium text-sm"
+          className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl border border-transparent shadow-sm transition-all font-medium text-sm"
         >
           <Plus size={18} /> Add Employee
         </button>
       </div>
 
       {/* Filters & Search Bar */}
-      <div className="bg-[#111111] border border-gray-800 rounded-xl p-4 mb-6 flex flex-col md:flex-row gap-4 items-center justify-between">
+      <div className="bg-white dark:bg-[#111111] border border-gray-100 dark:border-gray-800 rounded-2xl p-4 mb-6 flex flex-col md:flex-row gap-4 items-center justify-between shadow-sm transition-colors duration-300">
         <div className="relative w-full md:w-1/2">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <Search size={18} className="text-gray-500" />
+            <Search size={18} className="text-gray-400 dark:text-gray-500" />
           </div>
           <input
             type="text"
-            className="w-full bg-[#1a1a1a] border border-gray-700 text-gray-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block pl-10 p-2.5 outline-none transition-colors"
+            className="w-full bg-gray-50 dark:bg-[#1a1a1a] border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 text-sm rounded-full focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 block pl-10 p-2.5 outline-none transition-colors"
             placeholder="Search employees by name, ID or email..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -65,44 +67,46 @@ const Employee = () => {
       </div>
 
       {/* Main Table Container */}
-      <div className="bg-[#111111] border border-gray-800 rounded-xl overflow-hidden">
-        <div className="p-5 border-b border-gray-800 flex justify-between items-center">
-          <h2 className="text-lg font-semibold text-gray-100">Employee Directory</h2>
+      <div className="bg-white dark:bg-[#111111] border border-gray-100 dark:border-gray-800 rounded-2xl overflow-hidden shadow-sm transition-colors duration-300">
+        <div className="p-5 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center">
+          <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Employee Directory</h2>
           <div className="flex gap-3">
-             <button className="flex items-center gap-2 text-sm text-gray-300 bg-[#1a1a1a] hover:bg-gray-800 border border-gray-700 px-4 py-2 rounded-lg transition-colors">
+             <button className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 bg-white dark:bg-[#1a1a1a] hover:bg-gray-50 dark:hover:bg-gray-800 border border-gray-200 dark:border-gray-700 px-4 py-2 rounded-xl transition-colors shadow-sm">
               <Download size={16} /> Export CSV
             </button>
           </div>
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full text-sm text-left text-gray-400">
-            <thead className="text-xs text-gray-400 uppercase bg-[#161616] border-b border-gray-800">
+          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            {/* Table Head */}
+            <thead className="text-xs text-gray-500 dark:text-gray-400 uppercase bg-gray-50 dark:bg-[#161616] border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
               <tr>
-                <th className="px-6 py-4 font-medium tracking-wider">Employee</th>
-                <th className="px-6 py-4 font-medium tracking-wider">Department</th>
-                <th className="px-6 py-4 font-medium tracking-wider">Role</th>
-                <th className="px-6 py-4 font-medium tracking-wider">Status</th>
-                <th className="px-6 py-4 font-medium tracking-wider text-right">Actions</th>
+                <th className="px-6 py-4 font-semibold tracking-wider">Employee</th>
+                <th className="px-6 py-4 font-semibold tracking-wider">Department</th>
+                <th className="px-6 py-4 font-semibold tracking-wider">Role</th>
+                <th className="px-6 py-4 font-semibold tracking-wider">Status</th>
+                <th className="px-6 py-4 font-semibold tracking-wider text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-800/60">
+            {/* Table Body */}
+            <tbody className="divide-y divide-gray-100 dark:divide-gray-800/60">
               {filteredEmployees.map((emp) => (
-                <tr key={emp.id} className="hover:bg-[#1a1a1a]/50 transition-colors group">
+                <tr key={emp.id} className="hover:bg-gray-50 dark:hover:bg-[#1a1a1a]/50 transition-colors group">
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex flex-col">
-                      <span className="font-medium text-gray-200 text-base">{emp.name}</span>
+                      <span className="font-medium text-gray-900 dark:text-gray-200 text-base">{emp.name}</span>
                       <span className="text-xs text-gray-500 mt-0.5">• {emp.id}</span>
                     </div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-gray-300">{emp.department}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-gray-300">{emp.role}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-300">{emp.department}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-300">{emp.role}</td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border
                       ${emp.status === 'Present' 
-                        ? 'bg-green-500/10 text-green-400 border-green-500/20' 
-                        : 'bg-red-500/10 text-red-400 border-red-500/20'}`}>
-                      <span className={`w-1.5 h-1.5 rounded-full ${emp.status === 'Present' ? 'bg-green-400' : 'bg-red-400'}`}></span>
+                        ? 'bg-green-50 text-green-700 border-green-200 dark:bg-green-500/10 dark:text-green-400 dark:border-green-500/20' 
+                        : 'bg-red-50 text-red-700 border-red-200 dark:bg-red-500/10 dark:text-red-400 dark:border-red-500/20'}`}>
+                      <span className={`w-1.5 h-1.5 rounded-full ${emp.status === 'Present' ? 'bg-green-500' : 'bg-red-500'}`}></span>
                       {emp.status}
                     </span>
                   </td>
@@ -112,7 +116,7 @@ const Employee = () => {
                       {/* VIEW BUTTON */}
                       <button 
                         onClick={() => navigate(`/admin/employee/${emp.id}`)}
-                        className="text-gray-400 hover:text-white transition-colors bg-gray-800/50 p-1.5 rounded-md hover:bg-gray-700" 
+                        className="text-gray-400 hover:text-indigo-600 dark:hover:text-white transition-colors bg-gray-100 dark:bg-gray-800/50 p-1.5 rounded-md hover:bg-indigo-50 dark:hover:bg-gray-700" 
                         title="View Full Details"
                       >
                         <Eye size={16} />
@@ -121,14 +125,14 @@ const Employee = () => {
                       {/* EDIT BUTTON */}
                       <button 
                         onClick={() => navigate(`/admin/employee/edit/${emp.id}`)}
-                        className="text-gray-400 hover:text-blue-400 transition-colors p-1.5" 
+                        className="text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors p-1.5" 
                         title="Edit Employee"
                       >
                         <Edit2 size={16} />
                       </button>
 
                       {/* DELETE BUTTON */}
-                      <button className="text-gray-400 hover:text-red-400 transition-colors p-1.5" title="Delete">
+                      <button className="text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition-colors p-1.5" title="Delete">
                         <Trash2 size={16} />
                       </button>
                     </div>

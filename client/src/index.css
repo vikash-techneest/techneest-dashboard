@@ -9,3 +9,8 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* index.css */
+body {
+  @apply bg-white dark:bg-[#0a0a0a] text-gray-900 dark:text-white transition-colors duration-300;
+}

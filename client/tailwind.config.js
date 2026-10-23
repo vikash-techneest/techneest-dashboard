@@ -9,3 +9,14 @@ export default {
   },
   plugins: [],
 }
+
+module.exports = {
+  darkMode: 'class', // <--- Ye line hona compulsory hai
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
